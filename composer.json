@@ -12,9 +12,12 @@
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.7",
         "spatie/laravel-data": "^1.5",
-        "tightenco/ziggy": "^1.0"
+        "symfony/panther": "^2.0",
+        "tightenco/ziggy": "^1.0",
+        "weidner/goutte": "^2.2"
     },
     "require-dev": {
+        "dbrekelmans/bdi": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.10",
         "laravel/sail": "^1.0.1",
