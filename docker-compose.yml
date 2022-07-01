@@ -1,0 +1,31 @@
+services:
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: copagril
+    volumes:
+      - ./db:/var/lib/postgresql/data/
+    networks:
+      - postgres-network
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - 80:80
+    depends_on:
+      - database
+    networks:
+      - postgres-network
+networks: 
+  postgres-network:
+    driver: bridge
